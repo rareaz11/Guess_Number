@@ -19,7 +19,7 @@ body {
   padding: 2.5rem;
   border-radius: 16px;
   width: 100%;
-  max-width: 420px;
+  max-width: 600px;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
@@ -80,6 +80,7 @@ button {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  justify-content: space-around;
 }
 
 .hidden-numbers input {

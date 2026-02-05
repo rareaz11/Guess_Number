@@ -12,7 +12,7 @@
 
       <p class="description">
         Odaberi <strong>3 broja između 1 i 30</strong>. Kada pogodiš broj, on će
-        se otkriti ispod.
+        se otkriti ispod. <strong>ALI IMAS SAMO 5 POKUSAJA</strong>
       </p>
 
       <!-- SKRIVENI BROJEVI -->
@@ -22,15 +22,23 @@
         <input type="text" value="?" readonly />
       </div>
 
+      <div class="hidden-numbers">
+        <h3 id="message">Waiting...</h3>
+      </div>
+
       <!-- USER INPUT -->
       <div class="inputs">
-        <input type="number" min="1" max="30" placeholder="Broj 1" />
-        <input type="number" min="1" max="30" placeholder="Broj 2" />
-        <input type="number" min="1" max="30" placeholder="Broj 3" />
+        <input
+          class="yourChoise"
+          type="number"
+          min="1"
+          max="30"
+          placeholder="Broj 1"
+        />
       </div>
 
       <div class="buttons">
-        <button class="check">Check</button>
+        <button class="check" onclick="checkNumber()">Check</button>
         <button class="restart">Start again</button>
       </div>
 
@@ -38,5 +46,6 @@
         <!-- JS rezultat -->
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

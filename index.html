@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the Numbers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>🎯 Pogodi brojeve</h1>
+
+      <p class="description">
+        Odaberi <strong>3 broja između 1 i 30</strong>. Kada pogodiš broj, on će
+        se otkriti ispod.
+      </p>
+
+      <!-- SKRIVENI BROJEVI -->
+      <div class="hidden-numbers">
+        <input type="text" value="?" readonly />
+        <input type="text" value="?" readonly />
+        <input type="text" value="?" readonly />
+      </div>
+
+      <!-- USER INPUT -->
+      <div class="inputs">
+        <input type="number" min="1" max="30" placeholder="Broj 1" />
+        <input type="number" min="1" max="30" placeholder="Broj 2" />
+        <input type="number" min="1" max="30" placeholder="Broj 3" />
+      </div>
+
+      <div class="buttons">
+        <button class="check">Check</button>
+        <button class="restart">Start again</button>
+      </div>
+
+      <div class="result">
+        <!-- JS rezultat -->
+      </div>
+    </div>
+  </body>
+</html>

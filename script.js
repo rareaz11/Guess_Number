@@ -6,16 +6,34 @@ let numberOfTry = document.querySelector(".numberOfTry");
 const modal = document.getElementById("gameModal");
 const closeModal = document.querySelector(".restart-modal");
 const modalWin = document.getElementById("gameModalWin");
-closeModalWin = document.querySelector(".restart-modalWin");
+const closeModalWin = document.querySelector(".restart-modalWin");
+const restartoption = document.querySelector(".restart");
+const loadingModal = document.getElementById("loadingModal");
+
+restartoption.addEventListener("click", () => {
+  loadingModal.classList.add("active");
+
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
+});
 
 closeModal.addEventListener("click", function () {
   modal.classList.remove("active");
-  location.reload();
+  loadingModal.classList.add("active");
+
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 });
 
 closeModalWin.addEventListener("click", function () {
   modalWin.classList.remove("active");
-  location.reload();
+  loadingModal.classList.add("active");
+
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 });
 
 console.log(listOfSecretNumber);
@@ -34,8 +52,8 @@ let counter = 5;
 function checkNumber() {
   //modalWin.classList.add("active");
   let number = document.querySelector(".yourChoise").value;
-  if (number !== "") {
-    if (counter <= 0) {
+  if (number !== "" && parseInt(number) >= 1 && parseInt(number) <= 30) {
+    if (counter < 1) {
       // console.log("gotovo");
       modal.classList.add("active");
     } else {
@@ -44,22 +62,19 @@ function checkNumber() {
       numberOfTry.innerHTML = counter;
     }
 
-    if (parseInt(number) < 1 || parseInt(number) > 30) {
-      // console.log("veci je");
-      messageSelector.innerHTML = "Izaberite broj izmedu 1 i 30";
-      messageSelector.style.color = "red";
-    }
     //console.log(number);
     if (listOfSecretNumber.includes(parseInt(number))) {
-      console.log("tu sam");
+      //console.log("tu sam");
       if (inputs[0].value === "?") {
         inputs[0].value = number;
         messageSelector.innerHTML = "Pogodak";
         messageSelector.style.color = "black";
+        checkTryInStatements(counter);
       } else if (inputs[0].value !== number && inputs[1].value === "?") {
         messageSelector.innerHTML = "Pogodak";
         messageSelector.style.color = "black";
         inputs[1].value = number;
+        checkTryInStatements(counter);
       } else if (
         parseInt(inputs[0].value) !== parseInt(number) &&
         parseInt(inputs[1].value) !== parseInt(number) &&
@@ -70,9 +85,23 @@ function checkNumber() {
       } else {
         messageSelector.innerHTML = "Ne mogu se koristiti 2 ista broja";
         messageSelector.style.color = "red";
+        checkTryInStatements(counter);
       }
+    } else {
+      messageSelector.innerHTML = "Dobar pokusaj, ali nazalost nije pogodak";
+      checkTryInStatements(counter);
     }
+  } else if (parseInt(number) < 1 || parseInt(number) > 30) {
+    // console.log("veci je");
+    messageSelector.innerHTML = "Izaberite broj izmedu 1 i 30";
+    messageSelector.style.color = "red";
   } else {
     messageSelector.innerHTML = "U polje treba biti unesen broj";
+  }
+}
+
+function checkTryInStatements(count) {
+  if (count == 1) {
+    modal.classList.add("active");
   }
 }

@@ -122,3 +122,67 @@ button:active {
   font-weight: 500;
   color: #444;
 }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal h2 {
+  margin-bottom: 0.5rem;
+}
+
+.modal p {
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.restart-modal {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.restart-modalWin {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* AKTIVAN MODAL */
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}

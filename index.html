@@ -12,7 +12,12 @@
 
       <p class="description">
         Odaberi <strong>3 broja između 1 i 30</strong>. Kada pogodiš broj, on će
-        se otkriti ispod. <strong>ALI IMAS SAMO 5 POKUSAJA</strong>
+        se otkriti ispod.
+        <strong
+          >ALI IMAS SAMO
+          <span class="numberOfTry">5</span>
+          POKUSAJA</strong
+        >
       </p>
 
       <!-- SKRIVENI BROJEVI -->
@@ -46,6 +51,25 @@
         <!-- JS rezultat -->
       </div>
     </div>
+    <!-- MODAL -->
+    <div class="modal" id="gameModal">
+      <div class="modal-content">
+        <h2>😢 Game Over</h2>
+        <p>Potrošio si sve pokušaje.</p>
+
+        <button class="restart-modal">Start again</button>
+      </div>
+    </div>
+
+    <div class="modal" id="gameModalWin">
+      <div class="modal-content">
+        <h2>WIN!!!!!</h2>
+        <p>🥳</p>
+
+        <button class="restart-modalWin">Start again</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

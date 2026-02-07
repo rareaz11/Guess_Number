@@ -67,12 +67,13 @@ function checkNumber() {
       //console.log("tu sam");
       if (inputs[0].value === "?") {
         inputs[0].value = number;
-        messageSelector.innerHTML = "Pogodak";
-        messageSelector.style.color = "black";
+
+        displayMessage("Pogodak", "black");
+
         checkTryInStatements(counter);
       } else if (inputs[0].value !== number && inputs[1].value === "?") {
-        messageSelector.innerHTML = "Pogodak";
-        messageSelector.style.color = "black";
+        displayMessage("Pogodatak!", "black");
+
         inputs[1].value = number;
         checkTryInStatements(counter);
       } else if (
@@ -83,20 +84,18 @@ function checkNumber() {
         inputs[2].value = number;
         modalWin.classList.add("active");
       } else {
-        messageSelector.innerHTML = "Ne mogu se koristiti 2 ista broja";
-        messageSelector.style.color = "red";
+        displayMessage("Ne mogu se koristiti 2 ista broja", "red");
         checkTryInStatements(counter);
       }
     } else {
-      messageSelector.innerHTML = "Dobar pokusaj, ali nazalost nije pogodak";
+      displayMessage("Dobar pokusaj, ali nazalost nije pogodak", "black");
       checkTryInStatements(counter);
     }
   } else if (parseInt(number) < 1 || parseInt(number) > 30) {
     // console.log("veci je");
-    messageSelector.innerHTML = "Izaberite broj izmedu 1 i 30";
-    messageSelector.style.color = "red";
+    displayMessage("Izaberite broj izmedu 1 i 30", "red");
   } else {
-    messageSelector.innerHTML = "U polje treba biti unesen broj";
+    displayMessage("U polje treba biti unesen broj", "black");
   }
 }
 
@@ -104,4 +103,9 @@ function checkTryInStatements(count) {
   if (count == 1) {
     modal.classList.add("active");
   }
+}
+// this is good option when we need reuse same code, just change
+function displayMessage(mess, color) {
+  messageSelector.innerHTML = mess;
+  messageSelector.style.color = color;
 }
